@@ -1,0 +1,25 @@
+{
+  "name": "idx-agent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/skill.ts",
+  "scripts": {
+    "test": "node --import tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "verify": "tsx scripts/verify-setup.ts",
+    "demo": "tsx scripts/demo.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.7",
+    "mysql2": "^3.24.5"
+  },
+  "type": "module"
+}
