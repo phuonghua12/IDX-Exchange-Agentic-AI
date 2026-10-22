@@ -50,3 +50,24 @@ flowchart LR
 - **Parser separate from DB layer** — can be tested with no database, and later swapped for an LLM parser.
 - **Sold comps anchored to newest `CloseDate`** — the data ends in 2025, so `CURDATE()` windows would be empty.
 - **Secrets in `.env`** — never committed.
+
+## 5. Week 4 — Conversational layer
+
+```mermaid
+stateDiagram-v2
+  [*] --> AskCity: new / expired session
+  AskCity --> AskBudget: city known
+  AskBudget --> AskType: budget given or "any"
+  AskType --> Results: type given or "any"
+  AskCity --> Results: rich first message (city + 3 filters)
+  Results --> Results: refine ("4 beds", "add a pool", "no pool", "in Pasadena instead")
+  Results --> Results: "more" (next page)
+  Results --> [*]: "start over" clears session
+```
+
+- `src/session.ts` — per-user `Map<userId, UserSession>`; sessions expire after 30 idle minutes.
+- `src/conversation.ts` — `handleMessage(userId, message)`: parse → merge into session → ask next missing question or search.
+- Context-aware parsing: the bare reply "Irvine" is read as a city only when we just asked for a city; "900k" as a budget only when we asked for budget.
+- Each question is asked once. "any" / "no preference" skips it permanently for that session.
+- After the first results, every message with a recognised change re-runs the search with merged filters.
+- Limits: memory is in-process (lost on restart). Long-term/vector memory arrives in Week 6.

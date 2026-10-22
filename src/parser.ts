@@ -24,7 +24,7 @@ const TYPE_MAP: Array<[RegExp, string]> = [
   [/\b(land|vacant lot)\b/i, "UnimprovedLand"],
 ];
 
-const STOP = "under|below|over|above|with|at|for|that|and|priced|less|max|min|having|without|no|near|around|within|up|\\$|\\d";
+const STOP = "instead|now|please|too|also|only|under|below|over|above|with|at|for|that|and|priced|less|max|min|having|without|no|near|around|within|up|\\$|\\d";
 
 function titleCase(s: string) {
   return s.toLowerCase().replace(/\b([a-z])/g, (m) => m.toUpperCase());

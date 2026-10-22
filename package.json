@@ -7,7 +7,8 @@
     "test": "node --import tsx --test tests/*.test.ts",
     "typecheck": "tsc --noEmit",
     "verify": "tsx scripts/verify-setup.ts",
-    "demo": "tsx scripts/demo.ts"
+    "demo": "tsx scripts/demo.ts",
+    "chat": "tsx scripts/chat.ts"
   },
   "keywords": [],
   "author": "",

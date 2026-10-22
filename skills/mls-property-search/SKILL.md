@@ -10,6 +10,7 @@ Use when the user asks to find, browse, or compare California properties, or ask
 Implementation lives in this repo:
 - `src/parser.ts`  — `parsePropertyQuery(message)` → structured filters (Week 2)
 - `src/search.ts`  — parameterized MySQL queries + pagination (Week 3)
+- `src/conversation.ts` — `handleMessage(userId, message)` multi-turn flow with session memory (Week 4); wire WhatsApp messages to this
 - `src/skill.ts`   — `handlePropertySearch(message, { page })` → WhatsApp-ready text cards
 
 Rules: never build SQL by string concatenation; if no filter is detected, ask the user what they want

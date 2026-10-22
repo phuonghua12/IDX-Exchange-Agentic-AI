@@ -6,6 +6,7 @@ cp .env.example .env     # fill in real values
 npm test                 # parser + SQL-builder tests (no DB needed)
 npm run verify           # Week 0 checker (needs MySQL + .env)
 npm run demo -- "3-bedroom condos in Irvine under $1.5M with a pool"
+npm run chat             # Week 4: multi-turn conversation in your terminal
 ```
 
 ## Week 0 checklist (things only you can do on your machine)
@@ -26,3 +27,4 @@ npm run demo -- "3-bedroom condos in Irvine under $1.5M with a pool"
 | 1 | Architecture doc + diagram | `docs/ARCHITECTURE.md` |
 | 2 | Parser skill, ≥10 test queries | `src/parser.ts`, `tests/parser.test.ts` (14) |
 | 3 | DB skill returning property cards | `src/search.ts`, `src/format.ts`, `src/skill.ts` |
+| 4 | Multi-turn conversation + session memory | `src/session.ts`, `src/conversation.ts`, `tests/conversation.test.ts` (11 tests) |
