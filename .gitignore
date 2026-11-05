@@ -2,3 +2,4 @@ node_modules
 dist
 .env
 *.sql
+.DS_Store
